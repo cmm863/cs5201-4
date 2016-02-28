@@ -119,7 +119,7 @@ MathVector<T>& MathVector<T>::operator =(MathVector<T> other)
 }
 
 template <typename T>
-MathVector<T>& MathVector<T>::operator +=(const MathVector<T> &rhs)
+MathVector<T>& MathVector<T>::operator +=(const MathVector<T>& rhs)
 {
   if(this->m_size != rhs.m_size)
   {
@@ -134,10 +134,32 @@ MathVector<T>& MathVector<T>::operator +=(const MathVector<T> &rhs)
 }
 
 template <typename T>
+MathVector<T>& MathVector<T>::operator-=(const MathVector <T>& rhs)
+{
+  if(this->m_size != rhs.m_size)
+  {
+    cerr << "Sizes not equal - operator" << endl;
+  }
+  for(unsigned long i = 0; i < this->m_size; i++)
+  {
+    this->m_elements[i] -= rhs.m_elements[i];
+  }
+
+  return *this;
+}
+
+template <typename T>
 MathVector<T> operator +(const MathVector<T>& lhs, const MathVector<T>& rhs)
 {
   MathVector<T> ret(lhs);
   return ret += rhs;
+}
+
+template <typename T>
+MathVector<T> operator -(const MathVector<T>& lhs, const MathVector<T>& rhs)
+{
+  MathVector<T> ret(lhs);
+  return ret -= rhs;
 }
 
 template <typename T>
