@@ -6,11 +6,13 @@ CMakeCache.txt
 CMakeFiles/*
 2
 3
+4
 driver
 a.out
 driver.o
 depend
 *.dSYM/
+main.o
 
 ## File-based project format:
 *.iws
