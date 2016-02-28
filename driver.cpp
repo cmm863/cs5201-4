@@ -15,24 +15,14 @@ int main()
   {
     test3.push(i);
   }
-  cout << "Hello, World!" << endl;
-  for(unsigned long i = 0; i < test2.size(); i++)
-  {
-    cout << test2[i] << endl;
-  }
+  cout << test2 << endl;
   cout << "Size: " << test3.size() << endl;
   cout << "Capacity: " << test3.capacity() << endl;
-  for(unsigned long i = 0; i < test3.size(); i++)
-  {
-    cout << test3[i] << endl;
-  }
+  cout << test3 << endl;
   test3 = test2 + test;
   cout << "Size: " << test3.size() << endl;
   cout << "Capacity: " << test3.capacity() << endl;
-  for(unsigned long i = 0; i < test3.size(); i++)
-  {
-    cout << test3[i] << endl;
-  }
+  cout << test3 << endl;
 
 
   return 0;

@@ -134,10 +134,28 @@ MathVector<T>& MathVector<T>::operator +=(const MathVector<T> &rhs)
 }
 
 template <typename T>
-MathVector<T> operator +(const MathVector<T> &lhs, const MathVector<T> &rhs)
+MathVector<T> operator +(const MathVector<T>& lhs, const MathVector<T>& rhs)
 {
   MathVector<T> ret(lhs);
   return ret += rhs;
+}
+
+template <typename T>
+ostream& operator <<(ostream& out, const MathVector<T>& rhs)
+{
+  for(unsigned long i = 0; i < rhs.m_size; i++)
+  {
+    if(i == rhs.m_size - 1)
+    {
+      out << rhs.m_elements[i];
+    }
+    else
+    {
+      out << rhs.m_elements[i] << " ";
+    }
+  }
+
+  return out;
 }
 
 template <typename T>

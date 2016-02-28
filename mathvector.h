@@ -5,11 +5,18 @@
 #ifndef MATHVECTOR_H
 #define MATHVECTOR_H
 
+#include <iostream>
+
+using namespace std;
+
 template <typename T>
 class MathVector;
 
 template <typename T>
 MathVector<T> operator +(const MathVector<T>& lhs, const MathVector<T>& rhs);
+
+template <typename T>
+ostream& operator <<(ostream& out, const MathVector<T>& rhs);
 
 template <typename T>
 void mv_swap(MathVector<T>& lhs, MathVector<T>& rhs);
@@ -30,7 +37,7 @@ public:
   MathVector(MathVector&& other); // Rule of 4 1/2
   ~MathVector(); // Rule of 3
 
-  // Helpers
+  // Getters
   unsigned long size() const;
   unsigned long capacity() const;
 
@@ -42,6 +49,7 @@ public:
   MathVector& operator =(MathVector other); // Rule of 3
   MathVector& operator +=(const MathVector& rhs);
   friend MathVector operator + <>(const MathVector& lhs, const MathVector& rhs);
+  friend ostream& operator << <>(ostream& out, const MathVector& rhs);
 
   // Friends
   friend void mv_swap <>(MathVector& lhs, MathVector& rhs); // Rule of 3 1/2
