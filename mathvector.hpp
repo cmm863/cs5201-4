@@ -43,7 +43,7 @@ MathVector<T>::MathVector(const MathVector& other)
 }
 
 template <typename T>
-MathVector<T>::MathVector(MathVector<T> &&other)
+MathVector<T>::MathVector(MathVector<T>&& other)
 {
   this->m_size = other.m_size;
   this->m_capacity = other.m_capacity;

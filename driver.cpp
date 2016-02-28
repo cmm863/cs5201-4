@@ -1,10 +1,19 @@
 #include <iostream>
 #include "mathvector.h"
+#include "mathmatrix.h"
 
 using namespace std;
 
 int main()
 {
+  MathMatrix<int> testMatrix(1, 2);
+  cout << "m: " << testMatrix.rows() << endl;
+  cout << "n: " << testMatrix.columns() << endl;
+  testMatrix[0].push(4);
+  MathMatrix<int> testM2;
+  testM2 = testMatrix;
+  cout << "Row 1: " << testM2[0] << endl;
+  cout << "Row 1: " << testMatrix[0] << endl;
   MathVector<int> test;
   test.push(5);
   test.push(7);
