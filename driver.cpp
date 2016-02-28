@@ -26,6 +26,8 @@ int main()
   cout << test3 << endl;
   test3 = 3 * test3;
   cout << test3 << endl;
+  test3[0] = 2;
+  cout << test3 << endl;
 
 
   return 0;

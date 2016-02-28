@@ -51,7 +51,7 @@ public:
   void push(T element);
 
   // Operators
-  T& operator [](int index);
+  T& operator [](unsigned long index);
   MathVector& operator =(MathVector other); // Rule of 3
   MathVector& operator +=(const MathVector& rhs);
   friend MathVector operator + <>(const MathVector& lhs, const MathVector& rhs);

@@ -15,7 +15,7 @@ template <typename T>
 MathVector<T>::MathVector()
 {
   this->m_size = 0;
-  this->m_capacity = 10;
+  this->m_capacity = 1;
   this->m_elements = new T[this->m_capacity]();
 }
 
@@ -101,7 +101,7 @@ void MathVector<T>::push(T element)
 }
 
 template <typename T>
-T& MathVector<T>::operator[](int index)
+T& MathVector<T>::operator[](unsigned long index)
 {
   if(index < 0 || index >= this->m_size)
   {
