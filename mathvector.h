@@ -16,6 +16,12 @@ template <typename T>
 MathVector<T> operator +(const MathVector<T>& lhs, const MathVector<T>& rhs);
 
 template <typename T>
+MathVector<T> operator *(double c, const MathVector<T>& rhs);
+
+template <typename T>
+T operator *(const MathVector<T>& lhs, const MathVector<T>& rhs);
+
+template <typename T>
 ostream& operator <<(ostream& out, const MathVector<T>& rhs);
 
 template <typename T>
@@ -49,6 +55,8 @@ public:
   MathVector& operator =(MathVector other); // Rule of 3
   MathVector& operator +=(const MathVector& rhs);
   friend MathVector operator + <>(const MathVector& lhs, const MathVector& rhs);
+  friend MathVector operator * <>(double c, const MathVector& rhs);
+  friend T operator * <>(const MathVector& lhs, const MathVector& rhs);
   friend ostream& operator << <>(ostream& out, const MathVector& rhs);
 
   // Friends

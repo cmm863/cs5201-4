@@ -141,6 +141,35 @@ MathVector<T> operator +(const MathVector<T>& lhs, const MathVector<T>& rhs)
 }
 
 template <typename T>
+MathVector<T> operator *(double c, const MathVector<T>& rhs)
+{
+  MathVector<T> ret(rhs);
+  for(unsigned long i = 0; i < ret.m_size; i++)
+  {
+    ret.m_elements[i] *= c;
+  }
+
+  return ret;
+}
+
+template <typename T>
+T operator *(const MathVector<T>& lhs, const MathVector<T>& rhs)
+{
+  if(lhs.m_size != rhs.m_size)
+  {
+    cerr << "Size error with * operator (dot product)" << endl;
+  }
+
+  T ret = 0;
+  for(unsigned long i = 0; i < lhs.m_size; i++)
+  {
+    ret += lhs.m_elements[i] * rhs.m_elements[i];
+  }
+
+  return ret;
+}
+
+template <typename T>
 ostream& operator <<(ostream& out, const MathVector<T>& rhs)
 {
   for(unsigned long i = 0; i < rhs.m_size; i++)

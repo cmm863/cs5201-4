@@ -10,6 +10,7 @@ int main()
   test.push(7);
   MathVector<int> test2;
   test2 = test;
+  cout << test2 * test << endl;
   MathVector<int> test3 = MathVector<int>(2);
   for(int i = 0; i < 10; i++)
   {
@@ -22,6 +23,8 @@ int main()
   test3 = test2 + test;
   cout << "Size: " << test3.size() << endl;
   cout << "Capacity: " << test3.capacity() << endl;
+  cout << test3 << endl;
+  test3 = 3 * test3;
   cout << test3 << endl;
 
 
