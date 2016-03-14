@@ -140,10 +140,23 @@ MathMatrix<T>& MathMatrix<T>::operator +=(const MathMatrix<T>& rhs)
 }
 
 template <typename T>
+MathMatrix<T>& MathMatrix<T>::operator-=(const MathMatrix<T>& rhs)
+{
+  return (*this) += -1 * rhs;
+}
+
+template <typename T>
 MathMatrix<T> operator +(const MathMatrix<T>& lhs, const MathMatrix<T>& rhs)
 {
   MathMatrix<T> m(lhs);
   return m += rhs;
+}
+
+template <typename T>
+MathMatrix<T> operator -(const MathMatrix<T>& lhs, const MathMatrix<T>& rhs)
+{
+  MathMatrix<T> m(lhs);
+  return m -= rhs;
 }
 
 template <typename T>

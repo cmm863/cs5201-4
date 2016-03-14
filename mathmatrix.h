@@ -17,6 +17,9 @@ template <typename T>
 MathMatrix<T> operator +(const MathMatrix<T>& lhs, const MathMatrix<T>& rhs);
 
 template <typename T>
+MathMatrix<T> operator -(const MathMatrix<T>& lhs, const MathMatrix<T>& rhs);
+
+template <typename T>
 MathMatrix<T> operator *(double c, const MathMatrix<T>& rhs);
 
 template <typename T>
@@ -55,9 +58,11 @@ public:
   MathVector<T>& operator [](unsigned long index);
   MathMatrix& operator =(MathMatrix other); // Rule of 3
   MathMatrix& operator +=(const MathMatrix& rhs);
+  MathMatrix& operator -=(const MathMatrix& rhs);
 
   // Friends
   friend MathMatrix operator + <>(const MathMatrix& lhs, const MathMatrix& rhs);
+  friend MathMatrix operator - <>(const MathMatrix& lhs, const MathMatrix& rhs);
   friend MathMatrix operator * <>(double c, const MathMatrix& rhs);
   friend void mm_swap <>(MathMatrix& lhs, MathMatrix& rhs); // Rule of 3 1/2
   friend ostream& operator << <>(ostream& out, const MathMatrix<T>& rhs);

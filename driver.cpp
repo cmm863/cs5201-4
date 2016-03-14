@@ -44,6 +44,7 @@ int main(int argc, char* argv[])
     cout << matrixTwo << endl;
     cout << matrix + matrixTwo << endl;
     cout << 2 * matrix << endl;
+    cout << matrix - matrixTwo << endl;
   }
 
   return 0;
