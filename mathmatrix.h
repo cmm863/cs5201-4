@@ -17,6 +17,12 @@ template <typename T>
 void mm_swap(MathMatrix<T>& lhs, MathMatrix<T>& rhs);
 
 template <typename T>
+ostream& operator <<(ostream& out, const MathMatrix<T>& rhs);
+
+template <typename T>
+istream& operator >>(istream& in, MathMatrix<T>& rhs);
+
+template <typename T>
 class MathMatrix
 {
 private:
@@ -35,12 +41,18 @@ public:
   unsigned long rows() const;
   unsigned long columns() const;
 
+  // Function
+  void addRow(MathVector<T> row);
+
   // Operators
+  MathVector<T>& operator [](unsigned long index) const;
   MathVector<T>& operator [](unsigned long index);
   MathMatrix& operator =(MathMatrix other); // Rule of 3
 
   // Friends
   friend void mm_swap <>(MathMatrix& lhs, MathMatrix& rhs); // Rule of 3 1/2
+  friend ostream& operator << <>(ostream& out, const MathMatrix<T>& rhs);
+  friend istream& operator >> <>(istream& in, MathMatrix<T>& rhs);
 };
 
 #include "mathmatrix.hpp"

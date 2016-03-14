@@ -1,44 +1,38 @@
 #include <iostream>
+#include <fstream>
 #include "mathvector.h"
 #include "mathmatrix.h"
 
 using namespace std;
 
-int main()
+int main(int argc, char* argv[])
 {
-  MathMatrix<int> testMatrix(1, 2);
-  cout << "m: " << testMatrix.rows() << endl;
-  cout << "n: " << testMatrix.columns() << endl;
-  testMatrix[0].push(4);
-  MathMatrix<int> testM2;
-  testM2 = testMatrix;
-  cout << "Row 1: " << testM2[0] << endl;
-  cout << "Row 1: " << testMatrix[0] << endl;
-  MathVector<int> test;
-  test.push(5);
-  test.push(7);
-  MathVector<int> test2;
-  test2 = test;
-  cout << test2 * test << endl;
-  MathVector<int> test3 = MathVector<int>(2);
-  for(int i = 0; i < 10; i++)
+  // If no file from arg commands
+  if(argc < 2)
   {
-    test3.push(i);
+    cout << "No file given." << endl;
+    return 1;
   }
-  cout << test2 << endl;
-  cout << "Size: " << test3.size() << endl;
-  cout << "Capacity: " << test3.capacity() << endl;
-  cout << test3 << endl;
-  test3 = test2 + test;
-  cout << "Size: " << test3.size() << endl;
-  cout << "Capacity: " << test3.capacity() << endl;
-  cout << test3 << endl;
-  test3 = 3 * test3;
-  cout << test3 << endl;
-  cout << test3 - test << endl;
-  test3[0] = 2;
-  cout << test3 << endl;
 
+  // Declare variables
+  ifstream inputFile(argv[1]);
+  int num_rows, num_columns;
+
+  // Start going through file
+  if(inputFile.is_open())
+  {
+    // Take in size
+    inputFile >> num_rows >> num_columns;
+
+    // Create matrix
+    MathMatrix<double> matrix(num_rows, num_columns);
+
+    // Load matrix
+    inputFile >> matrix;
+
+    // Output matrix
+    cout << matrix;
+  }
 
   return 0;
 }

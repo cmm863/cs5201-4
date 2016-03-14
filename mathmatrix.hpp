@@ -70,6 +70,43 @@ unsigned long MathMatrix<T>::columns() const
 }
 
 template <typename T>
+void MathMatrix<T>::addRow(MathVector<T> row)
+{
+  // Create temp ptr
+  MathVector<T> * temp = nullptr;
+
+  // Increase rows
+  this->m_rows++;
+
+  // Allocate new size & old data to temp ptr
+  temp = new MathVector<T>[this->m_rows];
+  for(unsigned long i = 0; i < this->m_rows - 1; i++)
+  {
+    temp[i] = this->m_vectors[i];
+  }
+
+  // Delete old data
+  delete [] this->m_vectors;
+
+  // Swap ptr
+  this->m_vectors = nullptr;
+  swap(this->m_vectors, temp);
+
+  // Add element
+  this->m_vectors[this->m_rows - 1] = row;
+}
+
+template <typename T>
+MathVector<T>& MathMatrix<T>::operator[](unsigned long index) const
+{
+  if(index < 0 || index >= this->m_rows)
+  {
+    cerr << "Out of Range" << endl;
+  }
+  return this->m_vectors[index];
+}
+
+template <typename T>
 MathVector<T>& MathMatrix<T>::operator[](unsigned long index)
 {
   if(index < 0 || index >= this->m_rows)
@@ -93,6 +130,40 @@ void mm_swap(MathMatrix<T>& lhs, MathMatrix<T>& rhs)
   swap(lhs.m_rows, rhs.m_rows);
   swap(lhs.m_columns, rhs.m_columns);
   swap(lhs.m_vectors, rhs.m_vectors);
+}
+
+template <typename T>
+ostream& operator <<(ostream& out, const MathMatrix<T>& rhs)
+{
+  for(unsigned long i = 0; i < rhs.m_rows; i++)
+  {
+    for(unsigned long j = 0; j < rhs.m_columns; j++)
+    {
+      out << rhs[i][j] << " ";
+    }
+    if(i < rhs.m_rows - 1)
+    {
+      out << endl;
+    }
+  }
+
+  return out;
+}
+
+template <typename T>
+istream& operator >>(istream& in, MathMatrix<T>& rhs)
+{
+  T temp;
+  for(unsigned long i = 0; i < rhs.m_rows; i++)
+  {
+    for(unsigned long j = 0; j < rhs.m_columns; j++)
+    {
+      in >> temp;
+      rhs[i].push(temp);
+    }
+  }
+
+  return in;
 }
 
 #endif //MATHMATRIX_HPP
