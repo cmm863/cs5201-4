@@ -30,8 +30,20 @@ int main(int argc, char* argv[])
     // Load matrix
     inputFile >> matrix;
 
+    MathMatrix<double> matrixTwo(num_rows, num_columns);
+    for(int i = 0; i < num_rows; i++)
+    {
+      for(int j = 0; j < num_columns; j++)
+      {
+        matrixTwo[i].push(i + j);
+      }
+    }
+
     // Output matrix
-    cout << matrix;
+    cout << matrix << endl;
+    cout << matrixTwo << endl;
+    cout << matrix + matrixTwo << endl;
+    cout << 2 * matrix << endl;
   }
 
   return 0;

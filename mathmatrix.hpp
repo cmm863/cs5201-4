@@ -125,6 +125,40 @@ MathMatrix<T>& MathMatrix<T>::operator =(MathMatrix<T> other)
 }
 
 template <typename T>
+MathMatrix<T>& MathMatrix<T>::operator +=(const MathMatrix<T>& rhs)
+{
+  if(this->m_columns != rhs.m_columns || this->m_rows != rhs.m_rows)
+  {
+    cerr << "Sizes not equal" << endl;
+  }
+  for(unsigned long i = 0; i < this->m_rows; i++)
+  {
+    (*this)[i] += rhs[i];
+  }
+
+  return (*this);
+}
+
+template <typename T>
+MathMatrix<T> operator +(const MathMatrix<T>& lhs, const MathMatrix<T>& rhs)
+{
+  MathMatrix<T> m(lhs);
+  return m += rhs;
+}
+
+template <typename T>
+MathMatrix<T> operator *(double c, const MathMatrix<T>& rhs)
+{
+  MathMatrix<T> m(rhs);
+  for(unsigned long i = 0; i < m.rows(); i++)
+  {
+    m[i] = c * m[i];
+  }
+
+  return m;
+}
+
+template <typename T>
 void mm_swap(MathMatrix<T>& lhs, MathMatrix<T>& rhs)
 {
   swap(lhs.m_rows, rhs.m_rows);
