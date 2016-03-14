@@ -1,6 +1,8 @@
-//
-// Created by Connor McBride on 2/28/16.
-//
+//////////////////////////////////////////////////////////////////////
+/// @file mathvector.hpp
+/// @author Connor McBride
+/// @brief Contains the Vector class implementation information
+//////////////////////////////////////////////////////////////////////
 
 #ifndef MATHVECTOR_HPP
 #define MATHVECTOR_HPP
@@ -202,7 +204,7 @@ ostream& operator <<(ostream& out, const MathVector<T>& rhs)
     }
     else
     {
-      out << rhs.m_elements[i] << " ";
+      out << rhs.m_elements[i] << ", ";
     }
   }
 

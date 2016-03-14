@@ -1,6 +1,8 @@
-//
-// Created by Connor McBride on 3/14/16.
-//
+//////////////////////////////////////////////////////////////////////
+/// @file gaussian_solver.hpp
+/// @author Connor McBride
+/// @brief Contains the GaussianSolver class implementation information
+//////////////////////////////////////////////////////////////////////
 
 #ifndef GAUSSIAN_SOLVER_HPP
 #define GAUSSIAN_SOLVER_HPP
@@ -12,7 +14,7 @@
 #include <cmath>
 
 template <typename T>
-MathVector<T> GaussianSolver::operator()(const MathMatrix<T> m, const MathMatrix<T> s)
+MathVector<T> GaussianSolver::operator()(const MathMatrix<T>& m, const MathMatrix<T>& s)
 {
   int n = m.rows();
   MathMatrix<T> A(n, n+1);

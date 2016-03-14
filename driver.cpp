@@ -1,3 +1,9 @@
+//////////////////////////////////////////////////////////////////////
+/// @file driver.cpp
+/// @author Connor McBride
+/// @brief Main class file for Assignment 4 CS5201
+//////////////////////////////////////////////////////////////////////
+
 #include <iostream>
 #include <fstream>
 #include <cmath>
@@ -47,13 +53,16 @@ int main(int argc, char* argv[])
     }
 
     // Output matrix
+    cout << "Vandermonde Matrix" << endl << endl;
     cout << X << endl;
+    cout << endl << "A transpose: " << endl;
     cout << X.transpose() << endl << endl;
+    cout << "Vandermonde times its transpose" << endl;
     cout << X * X.transpose() << endl << endl;
-    cout << endl << Y << endl;
 
+    cout << "Using partial pivoting" << endl;
     MathVector<long double> a = gs(X, Y);
-    cout << a << endl;
+    cout << "< " << a << " >" << endl;
   }
 
   return 0;
