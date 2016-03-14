@@ -69,7 +69,7 @@ MathVector<T> GaussianSolver::operator()(const MathMatrix<T> m, const MathMatrix
   }
 
   MathVector<T> x(n);
-  for(int i = 0; i < x.capacity(); i++)
+  for(unsigned long i = 0; i < x.capacity(); i++)
   {
     x.push(0);
   }

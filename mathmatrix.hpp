@@ -97,6 +97,21 @@ void MathMatrix<T>::addRow(MathVector<T> row)
 }
 
 template <typename T>
+MathMatrix<T> MathMatrix<T>::transpose()
+{
+  MathMatrix m(this->m_columns, this->m_rows);
+  for(unsigned long i = 0; i < m.m_rows; i++)
+  {
+    for(unsigned long j = 0; j < m.m_columns; j++)
+    {
+      m[i].push((*this)[j][i]);
+    }
+  }
+
+  return m;
+}
+
+template <typename T>
 MathVector<T>& MathMatrix<T>::operator[](unsigned long index) const
 {
   if(index < 0 || index >= this->m_rows)

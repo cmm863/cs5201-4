@@ -55,6 +55,7 @@ public:
 
   // Function
   void addRow(MathVector<T> row);
+  MathMatrix<T> transpose();
 
   // Operators
   MathVector<T>& operator [](unsigned long index) const;
