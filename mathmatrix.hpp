@@ -6,7 +6,6 @@
 #define MATHMATRIX_HPP
 
 #include <iostream>
-#include "mathmatrix.h"
 #include "mathvector.h"
 
 using namespace std;

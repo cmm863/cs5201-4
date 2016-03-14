@@ -9,7 +9,6 @@
 
 #include "mathmatrix.h"
 #include "mathvector.h"
-#include "gaussian_solver.h"
 #include <vector>
 #include <cmath>
 

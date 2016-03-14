@@ -7,7 +7,6 @@
 #ifndef MATHVECTOR_HPP
 #define MATHVECTOR_HPP
 
-#include "mathvector.h"
 #include <iostream>
 
 
