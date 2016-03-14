@@ -172,6 +172,32 @@ MathMatrix<T> operator *(double c, const MathMatrix<T>& rhs)
 }
 
 template <typename T>
+MathMatrix<T> operator *(const MathMatrix<T>& lhs, const MathMatrix<T>& rhs)
+{
+  MathMatrix<T> m(lhs.m_rows, rhs.m_columns);
+  for(unsigned long i = 0; i < m.m_rows; i++)
+  {
+    for(unsigned long j = 0; j < m.m_columns; j++)
+    {
+      m[i].push(0);
+    }
+  }
+
+  for(unsigned long i = 0; i < m.m_rows; i++)
+  {
+    for(unsigned long j = 0; j < m.m_columns; j++)
+    {
+      for(unsigned long k = 0; k < lhs.m_columns; k++)
+      {
+        m[i][j] += lhs[i][k] * rhs[k][j];
+      }
+    }
+  }
+
+  return m;
+}
+
+template <typename T>
 void mm_swap(MathMatrix<T>& lhs, MathMatrix<T>& rhs)
 {
   swap(lhs.m_rows, rhs.m_rows);

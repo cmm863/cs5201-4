@@ -39,12 +39,25 @@ int main(int argc, char* argv[])
       }
     }
 
+    MathMatrix<double> matrixThree(num_columns, 1);
+    for(int i = 0; i < matrixThree.rows(); i++)
+    {
+      for(int j = 0; j < matrixThree.columns(); j++)
+      {
+        matrixThree[i].push(i + j);
+      }
+    }
+
     // Output matrix
     cout << matrix << endl;
     cout << matrixTwo << endl;
     cout << matrix + matrixTwo << endl;
     cout << 2 * matrix << endl;
-    cout << matrix - matrixTwo << endl;
+    cout << matrix - matrixTwo << endl << endl;
+    cout << matrix << endl << endl;
+    cout << matrixThree << endl;
+    cout << endl;
+    cout << matrix * matrixThree << endl;
   }
 
   return 0;

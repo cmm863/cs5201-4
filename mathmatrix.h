@@ -23,6 +23,9 @@ template <typename T>
 MathMatrix<T> operator *(double c, const MathMatrix<T>& rhs);
 
 template <typename T>
+MathMatrix<T> operator *(const MathMatrix<T>& lhs, const MathMatrix<T>& rhs);
+
+template <typename T>
 void mm_swap(MathMatrix<T>& lhs, MathMatrix<T>& rhs);
 
 template <typename T>
@@ -64,6 +67,7 @@ public:
   friend MathMatrix operator + <>(const MathMatrix& lhs, const MathMatrix& rhs);
   friend MathMatrix operator - <>(const MathMatrix& lhs, const MathMatrix& rhs);
   friend MathMatrix operator * <>(double c, const MathMatrix& rhs);
+  friend MathMatrix operator * <>(const MathMatrix& lhs, const MathMatrix& rhs);
   friend void mm_swap <>(MathMatrix& lhs, MathMatrix& rhs); // Rule of 3 1/2
   friend ostream& operator << <>(ostream& out, const MathMatrix<T>& rhs);
   friend istream& operator >> <>(istream& in, MathMatrix<T>& rhs);
