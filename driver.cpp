@@ -2,6 +2,7 @@
 #include <fstream>
 #include "mathvector.h"
 #include "mathmatrix.h"
+#include "gaussian_solver.h"
 
 using namespace std;
 
@@ -17,6 +18,7 @@ int main(int argc, char* argv[])
   // Declare variables
   ifstream inputFile(argv[1]);
   int num_rows, num_columns;
+  GaussianSolver gs;
 
   // Start going through file
   if(inputFile.is_open())
@@ -26,38 +28,24 @@ int main(int argc, char* argv[])
 
     // Create matrix
     MathMatrix<double> matrix(num_rows, num_columns);
+    MathMatrix<double> matrix_b(3, 1);
+
+    for(int i = 0; i < 3; i++)
+    {
+      for(int j = 0; j < 1; j++)
+      {
+        matrix_b[i].push(1);
+      }
+    }
 
     // Load matrix
     inputFile >> matrix;
 
-    MathMatrix<double> matrixTwo(num_rows, num_columns);
-    for(int i = 0; i < num_rows; i++)
-    {
-      for(int j = 0; j < num_columns; j++)
-      {
-        matrixTwo[i].push(i + j);
-      }
-    }
-
-    MathMatrix<double> matrixThree(num_columns, 1);
-    for(int i = 0; i < matrixThree.rows(); i++)
-    {
-      for(int j = 0; j < matrixThree.columns(); j++)
-      {
-        matrixThree[i].push(i + j);
-      }
-    }
-
     // Output matrix
     cout << matrix << endl;
-    cout << matrixTwo << endl;
-    cout << matrix + matrixTwo << endl;
-    cout << 2 * matrix << endl;
-    cout << matrix - matrixTwo << endl << endl;
-    cout << matrix << endl << endl;
-    cout << matrixThree << endl;
-    cout << endl;
-    cout << matrix * matrixThree << endl;
+    
+    MathVector<double> x = gs(matrix, matrix_b);
+    cout << x << endl;
   }
 
   return 0;
