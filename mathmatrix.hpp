@@ -1,6 +1,8 @@
-//
-// Created by Connor McBride on 2/28/16.
-//
+//////////////////////////////////////////////////////////////////////
+/// @file mathmatrix.hpp
+/// @author Connor McBride
+/// @brief Contains the MathMatrix class implementation information
+//////////////////////////////////////////////////////////////////////
 
 #ifndef MATHMATRIX_HPP
 #define MATHMATRIX_HPP
